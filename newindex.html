@@ -1,0 +1,87 @@
+<html>
+<script>
+function myFunction() {
+    var x, text;
+
+    name = document.getElementById("txt_Name").value;
+    email = document.getElementById("txt_Email").value;
+    phone = document.getElementById("txt_Phone").value;
+
+    if(typeof name === 'string' || name instanceof String)
+    
+        text = "";
+    } else {
+        text = "name should be alphabets only";
+        document.getElementById("1").innerHTML = text;
+    }
+    if(typeof phone === 'Integer')
+        
+        text = "";
+    } else {
+        text = "Phone number  should be Number only";
+        document.getElementById("3").innerHTML = text;
+    }
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (!filter.test(email)) 
+    {
+    	text="Please provide valid email";
+    	document.getElementById("3").innerHTML = text;	
+    }
+    
+}
+</script>
+
+<body id="blank"> 
+    <form name="frm_guru" id="frm_guru" action="">
+    <fieldset>
+        <legend>Customer Guru</legend>
+        <table>
+            <tr>
+                <th>*Name: </th>
+                <td><input type="text" id="txt_Name" onblur="myFunction()"></td>
+                <td><p id="1"></p></td>
+            </tr>                
+            <tr>
+                <th>Phone : </th>
+                <td><input type="number" id="txt_Phone"></td>
+                <td><p id="2"></p></td>
+            </tr>
+            <tr>
+                <th>Email: </th>
+                <td><input type="text" id="txt_Email" name="em" onfocus="fnclear('txt_Email','3')"></td>
+                <td><p id="3"></p></td>
+            </tr>
+            
+            
+            <tr>
+                <th>City: </th>
+                <td>
+                    <select id="select_city">
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Chennai</option>
+                        <option>Bangalore</option>
+                        
+                    </select>
+                </td>
+                <td><div id="8" value=""></div></td><!-- I'm not sure what the author meant to do with the value here but it's unnecessary as far as I can tell -->
+            </tr>
+            
+            </tr>
+        </table>
+    </fieldset>
+    <center>
+        <table width="100%">
+            <col align="right">
+            <tr>
+                <td class="submit_center">
+                    <input type="button" id="submit" value="Submit" onclick="myFunction()">
+                    
+                </td>                
+            </tr>
+        </table>
+    </center>
+</form>
+</body>
+</html>
